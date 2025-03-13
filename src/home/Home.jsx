@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("NL");
@@ -10,6 +9,8 @@ const Home = () => {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1); // For keyboard navigation
 
+  const year = new Date().getFullYear();
+  
   useEffect(() => {
     axios
       .get("https://openholidaysapi.org/Countries?languageIsoCode=EN")
@@ -26,7 +27,9 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`https://openholidaysapi.org/PublicHolidays?countryIsoCode=${selectedCountry}&validFrom=2025-01-01&validTo=2025-12-31&languageIsoCode=EN`)
+      .get(
+        `https://openholidaysapi.org/PublicHolidays?countryIsoCode=${selectedCountry}&validFrom=${year}-01-01&validTo=${year}-12-31&languageIsoCode=EN`
+      )
       .then((response) => {
         const formattedHolidays = response.data.map((holiday) => {
           const holidayDate = new Date(holiday.startDate);
@@ -44,9 +47,7 @@ const Home = () => {
   const handleSearch = (event) => {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
-    const filtered = countries.filter((country) =>
-      country.name.toLowerCase().includes(value)
-    );
+    const filtered = countries.filter((country) => country.name.toLowerCase().includes(value));
     setFilteredCountries(filtered.length > 0 ? filtered : []);
     setActiveIndex(-1); // Reset index when typing
   };
@@ -71,54 +72,48 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
       <h1>Public Holidays Of {countries.find((c) => c.isoCode === selectedCountry)?.name}</h1>
 
       {/* Search Input */}
-      <div className="search-container">
+      <div className='search-container'>
         <input
-          type="text"
-          className="search-input"
-          placeholder="Search for a country..."
+          type='text'
+          className='search-input'
+          placeholder='Search for a country...'
           value={searchTerm}
           onChange={handleSearch}
           onKeyDown={handleKeyDown} // Listen for key presses
         />
         {searchTerm && (
-          <ul className="search-results">
+          <ul className='search-results'>
             {filteredCountries.length > 0 ? (
               filteredCountries.map((country, index) => (
-                <li
-                  key={country.isoCode}
-                  onClick={() => handleCountrySelect(country.isoCode)}
-                  className={activeIndex === index ? "active" : ""}
-                >
+                <li key={country.isoCode} onClick={() => handleCountrySelect(country.isoCode)} className={activeIndex === index ? "active" : ""}>
                   {country.name}
                 </li>
               ))
             ) : (
-              <li className="no-result">Country not found</li>
+              <li className='no-result'>Country not found</li>
             )}
           </ul>
         )}
       </div>
 
       {/* Holiday List */}
-      <div className="holiday-grid">
+      <div className='holiday-grid'>
         {holidays.length > 0 ? (
           holidays.map((holiday, i) => (
-            <div key={holiday.date + i} className="holiday-card">
-              <span className=" holiday-date">
-                {holiday.date}
-              </span>
-              <span  className={`holiday-day ${holiday.isSunday ? "sunday" : ""}`}>
+            <div key={holiday.date + i} className='holiday-card'>
+              <span className=' holiday-date'>{holiday.date}</span>
+              <span className={`holiday-day ${holiday.isSunday ? "sunday" : ""}`}>
                 {new Date(holiday.date).toLocaleDateString("en-US", { weekday: "long" })}
               </span>
-              <span className="holiday-name">{holiday.name}</span>
+              <span className='holiday-name'>{holiday.name}</span>
             </div>
           ))
         ) : (
-          <p className="loading">Loading holidays...</p>
+          <p className='loading'>Loading holidays...</p>
         )}
       </div>
     </div>
