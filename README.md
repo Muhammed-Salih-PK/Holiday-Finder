@@ -1,12 +1,80 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# **🌍 Public Holidays App 🎉**  
 
-Currently, two official plugins are available:
+A React application that allows users to search and view **public holidays** for any country. It fetches real-time data from the **Open Holidays API** and highlights Sundays in **red**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Public Holidays App Preview](https://via.placeholder.com/800x400?text=App+Screenshot) <!-- Replace with actual screenshot URL -->
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## **🚀 Features**
+✅ **Search for holidays by country**  
+✅ **Shows holidays in a clean, responsive grid**  
+✅ **Highlights Sundays in red**  
+✅ **Supports dark mode (`color-scheme: dark;`)**  
+✅ **Displays ‘Not Found’ when no results match the search**  
+
+---
+
+## **📦 Installation & Setup**
+1️⃣ **Clone the repository**  
+```sh
+git clone https://github.com/YourUsername/PublicHolidaysApp.git
+cd PublicHolidaysApp
+```
+
+2️⃣ **Install dependencies**  
+```sh
+npm install
+```
+
+3️⃣ **Run the app**  
+```sh
+npm run dev
+```
+The app should now be running at **`http://localhost:PORT/`** 🚀
+
+---
+
+## **🔗 API Used**
+This app fetches holiday data from:  
+[Open Holidays API](https://openholidaysapi.org/)  
+
+Example API request:  
+```
+https://openholidaysapi.org/PublicHolidays?countryIsoCode=NL&validFrom=2025-01-01&validTo=2025-12-31&languageIsoCode=EN
+```
+
+---
+
+## **🎨 Screenshots**
+### 🌞 **Light Mode**
+![Light Mode](https://via.placeholder.com/600x300?text=Light+Mode) <!-- Replace with actual screenshot URL -->
+
+### 🌙 **Dark Mode**
+![Dark Mode](https://via.placeholder.com/600x300?text=Dark+Mode) <!-- Replace with actual screenshot URL -->
+
+---
+
+## **💻 Tech Stack**
+- **React** (Vite) ⚛️  
+- **Tailwind CSS** 🎨  
+- **Axios** (for API calls) 🔗  
+
+---
+
+## **🌟 How to Contribute**
+1. **Fork** the repo  
+2. **Create a new branch** (`git checkout -b feature-name`)  
+3. **Commit your changes** (`git commit -m "Added feature XYZ"`)  
+4. **Push** to your fork (`git push origin feature-name`)  
+5. **Create a Pull Request (PR)**  
+
+---
+
+## **📜 License**
+This project is open-source under the **MIT License**.  
+
+---
+
+🔗 **Live Demo** (if deployed): [Your Live App URL Here](#)  
