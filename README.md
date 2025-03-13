@@ -48,13 +48,7 @@ https://openholidaysapi.org/PublicHolidays?countryIsoCode=NL&validFrom=2025-01-0
 ---
 
 ## **🎨 Screenshots**
-### 🌞 **Light Mode**
-![Light Mode](https://via.placeholder.com/600x300?text=Light+Mode) <!-- Replace with actual screenshot URL -->
 
-### 🌙 **Dark Mode**
-![Dark Mode](https://via.placeholder.com/600x300?text=Dark+Mode) <!-- Replace with actual screenshot URL -->
-
----
 
 ## **💻 Tech Stack**
 - **React** (Vite) ⚛️  
